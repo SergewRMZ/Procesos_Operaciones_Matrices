@@ -51,6 +51,23 @@ int main (int argc, char *argv[]) {
     writeMatrix(inverseFile, (void **) inverse, 10, 'f');
     writeMatrix(inverse2File, (void **) inverse2, 10, 'f');
 
+    //******************************************************************	
+	//      Mostrar Resultados
+	//******************************************************************
+    printf("Suma:\n\n");
+    readIntMatrix(addFile, 10);
+    printf("\nResta:\n\n");
+    readIntMatrix(subFile, 10);
+    printf("\nMultiplicación:\n\n");
+    readIntMatrix(multFile, 10);
+    printf("\nTranspuesta de la Matriz 1:\n\n");
+    readIntMatrix(transposeFile, 10);
+    printf("\nTranpuesta de la Matriz 2: \n\n");
+    readIntMatrix(transpose2File, 10);
+    printf("\nInversa de la Matriz 1: \n\n");
+    readFloatMatrix(inverseFile, 10);
+    printf("\nInversa de la Matriz 2:\n\n");
+    readFloatMatrix(inverse2File, 10);
 
     //******************************************************************	
 	//      Liberar Memoria

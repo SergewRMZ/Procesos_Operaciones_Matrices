@@ -36,8 +36,8 @@ int main (int argc, char *argv[]) {
     //**************************************************************************	
     uswtime(&utime0, &stime0, &wtime0);
 
-    pid_t id_process[6];
-    for (int i = 0; i < 6; i++) {
+    pid_t id_process[7];
+    for (int i = 0; i < 7; i++) {
         id_process[i] = fork();
 
         if (id_process[i] == 0) {
@@ -76,14 +76,17 @@ int main (int argc, char *argv[]) {
                 case 4:
                     printf("Proceso hijo %i (INVERSA) mi padre es: %i\n", getpid(), getppid());
                     float **inverse = inverseMatrix(matrix1, 10); 
-                    float **inverse_2 = inverseMatrix(matrix2, 10);
-
                     writeMatrix(inverseFile, (void **) inverse, 10, 'f');   
-                    writeMatrix(inverse2File, (void **) inverse_2, 10, 'f');
-
                     freeFloatMatrix(inverse, 10);
+                    printf("Inversa de la Matriz 1 calculada\n");   
+                    break;
+
+                case 5:
+                    printf("Proceso hijo %i (INVERSA) mi padre es: %i\n", getpid(), getppid());
+                    float **inverse_2 = inverseMatrix(matrix2, 10);
+                    writeMatrix(inverse2File, (void **) inverse_2, 10, 'f');
                     freeFloatMatrix(inverse_2, 10); 
-                    printf("Inversas calculadas\n");   
+                    printf("Inversa de la Matriz 2 calculada\n");
                     break;
 
                 default:
@@ -105,7 +108,7 @@ int main (int argc, char *argv[]) {
      * con contenido vacío.
     */
     
-    if (id_process[5] != 0) {
+    if (id_process[6] != 0) {
         printf("Proceso hijo %i (MOSTRAR ARCHIVOS) mi padre es: %i\n", getpid(), getppid());
         printf("Suma:\n\n");
         readIntMatrix(addFile, 10);
