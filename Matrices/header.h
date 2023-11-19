@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/resource.h>
+#include <unistd.h>
+#include <sys/wait.h>
 #include <sys/time.h>
 #include <time.h>
 #include <math.h>
@@ -40,6 +42,8 @@ int **generateMatrix();
 FILE *createFile (const char *folder, const char *fileName);
 void writeFile(FILE *apf, const int valor);
 void writeMatrix (FILE *apf, void **matrix, int orden, char type);
+void readIntMatrix (FILE *apf, int orden);
+void readFloatMatrix(FILE *apf, int orden);
 
 // Función para medir tiempos
 void uswtime(double *usertime, double *systime, double *walltime);

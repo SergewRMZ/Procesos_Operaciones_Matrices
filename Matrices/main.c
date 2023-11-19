@@ -26,12 +26,16 @@ int main (int argc, char *argv[]) {
     char mult_FILE[] = "Mult.txt";
     char inverse_FILE[] = "Inversa.txt";
     char transpose_FILE[] = "Transpuesta.txt";
+    char transpose2_FILE[] = "Transpuesta2.txt";
+    char inverse2_FILE[] = "Inversa2.txt";
 
     FILE *addFile = createFile(folder, add_FILE);
     FILE *subFile = createFile(folder, sub_FILE);
     FILE *multFile = createFile(folder, mult_FILE);
     FILE *transposeFile = createFile(folder, transpose_FILE);
+    FILE *transpose2File = createFile(folder, transpose2_FILE);
     FILE *inverseFile = createFile(folder, inverse_FILE);
+    FILE *inverse2File = createFile(folder, inverse2_FILE);
 
     addMatrix(matrix1, matrix2, addFile);
     subMatrix(matrix1, matrix2, subFile);
@@ -39,13 +43,13 @@ int main (int argc, char *argv[]) {
     int **transpose = transposeMatrix(matrix1, 10);
     int **transpose2 = transposeMatrix(matrix2, 10);
     writeMatrix(transposeFile, (void **) transpose, 10, 'i');
-    writeMatrix(transposeFile, (void **) transpose2, 10, 'i');
+    writeMatrix(transpose2File, (void **) transpose2, 10, 'i');
 
     //  Inversa de la matriz
     float **inverse = inverseMatrix(matrix1, 10);
     float **inverse2 = inverseMatrix(matrix2, 10);
     writeMatrix(inverseFile, (void **) inverse, 10, 'f');
-    writeMatrix(inverseFile, (void **) inverse2, 10, 'f');
+    writeMatrix(inverse2File, (void **) inverse2, 10, 'f');
 
 
     //******************************************************************	

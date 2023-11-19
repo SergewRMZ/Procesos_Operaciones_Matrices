@@ -5,7 +5,7 @@ FILE *createFile (const char *folder, const char *fileName) {
     snprintf(fullpath, sizeof(fullpath), "%s/%s", folder, fileName);
 
     FILE *apf;
-    apf = fopen(fullpath, "w");
+    apf = fopen(fullpath, "w+");
     
     if (apf == NULL) {
         fprintf(stderr, "Error al crear el archivo\n");
@@ -37,5 +37,31 @@ void writeMatrix (FILE *apf, void **matrix, int orden, char type) {
 
             fprintf(apf, "\n");
         }
+    }
+}
+
+void readIntMatrix (FILE *apf, int orden) {
+    fseek(apf, 0, SEEK_SET); // Posicionar el puntero al inicio del archivo
+    int valor;
+    for (int i = 0; i < orden; i++) {
+        for (int j = 0; j < orden; j++) {
+            fscanf(apf, "%d", &valor);
+            printf("%6d", valor);
+        }
+
+        printf("\n");
+    }
+}
+
+void readFloatMatrix (FILE *apf, int orden) {
+    fseek(apf, 0, SEEK_SET); // Posicionar el puntero al inicio del archivo
+    float valor;
+    for (int i = 0; i < orden; i++) {
+        for (int j = 0; j < orden; j++) {
+            fscanf(apf, "%f", &valor);
+            printf("%8.4f", valor);
+        }
+
+        printf("\n");
     }
 }

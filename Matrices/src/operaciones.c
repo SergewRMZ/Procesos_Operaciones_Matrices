@@ -65,7 +65,7 @@ int **transposeMatrix(int **matrix, int orden) {
     int **transpose = createMatrixInt(orden);
     for (int i = 0; i < orden; i++) {
         for (int j =  0; j < orden; j++) {
-           transpose[i][j] = matrix[j][i]; 
+           transpose[i][j] = matrix[j][i];
         }
     }
 
